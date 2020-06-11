@@ -271,12 +271,12 @@ accent2_label = tk.Label(root, textvariable=accent2,background = 'lightblue').gr
 
 
 top5a = tk.StringVar(root)
-top5a.set('5 most common words')
+top5a.set('Most common words')
 
 top5a_label = tk.Label(root, textvariable=top5a,background = 'lightblue').grid(row=7, column=1)
 
 top5b = tk.StringVar(root)
-top5b.set('5 most common words')
+top5b.set('Most common words')
 
 top5b_label = tk.Label(root, textvariable=top5b,background = 'lightblue').grid(row=7, column=2)
 
@@ -297,19 +297,21 @@ word_per_sentence2_label = tk.Label(root, textvariable=word_per2,background = 'l
 
 prob_same = tk.IntVar(root)
 prob_text = tk.StringVar(root)
+prob_text.set('%')
 prob_same_label = tk.Label(root, textvariable=prob_text, padx = 10,background = 'lightblue').grid(sticky = "W", row=13, column=1)
  
 
 plagiat = tk.IntVar(root)
 plagiat_text = tk.StringVar(root)
+plagiat_text.set('%')
 plagiarism_label = tk.Label(root, textvariable=plagiat_text, padx = 10,background = 'lightblue').grid(sticky = "W", row=12, column=1)
 
 
-button = tk.Button(text='Load your files',font = 'calibri 11 bold', command=lambda:[open_file(),contractions(), variety(), top5(), word_per_sentence(), plagiarism(), same_author()]).grid(row=14, column=1, pady = 10)
+button = tk.Button(text='Load',font = 'calibri 11 bold', command=lambda:[open_file(),contractions(), variety(), top5(), word_per_sentence(), plagiarism(), same_author()]).grid(sticky = "E", row=14, column=2, padx = 5, pady = 10)
     
-button_quit = tk.Button(text='Quit', command = root.destroy, font = 'calibri 11 bold').grid(row = 14, column = 3, padx = 10, pady = 10)
+button_quit = tk.Button(text='Quit', command = root.destroy, font = 'calibri 11 bold').grid(row = 14, column = 4, padx = 5, pady = 10)
 
-button_save = tk.Button(text='Save', command = save_results, font = 'calibri 11 bold').grid(row = 14, column = 2, pady = 10)
+button_save = tk.Button(text='Save', command = save_results, font = 'calibri 11 bold').grid(sticky = "E", row = 14, column = 3, padx = 5, pady = 10)
 
 
 
