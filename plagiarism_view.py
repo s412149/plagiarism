@@ -204,17 +204,23 @@ menubar.add_cascade(label='File', menu=filemenu)
 
 root.config(menu=menubar)
 
+for col in range(0,4):
+    root.grid_columnconfigure(col, minsize=20)
+
+for row in range(0,15):
+    root.grid_rowconfigure(row, minsize=20)
+
 instruction_label = tk.Label(root, text="INSTRUCTION\n1. Choose file 1 and file 2 to compare.\n2 .Click button 'Load the files'\n3. You can save the results as .txt using 'Save' button.").grid(sticky = "W",row=0, column=2, rowspan = 2, padx = 5)
-label_empty = tk.Label (root, text = '', background = 'lightblue').grid(row = 2, column = 0)
+
 label_intro = tk.Label (root, text = 'Features of the contents:', background = 'lightblue', font = 'calibri 14 bold').grid(row = 3, column = 1, columnspan = 2)
-label_empty2 = tk.Label (root, text = '',background = 'lightblue').grid(row = 4, column = 0)
+
 label_style = tk.Label (root, text = 'Style:',background = 'lightblue',font = 'calibri 9 underline').grid(sticky = "W", row = 5, column = 0)
 label_variety = tk.Label (root, text = 'Variety:',background = 'lightblue', font = 'calibri 9 underline').grid(sticky = "W", row = 6, column = 0)
 label_top5 = tk.Label (root, text = 'Top 5 words:',background = 'lightblue', font = 'calibri 9 underline').grid(sticky = "W", row = 7, column = 0)
 label_words = tk.Label (root, text = 'Mean number of words:',background = 'lightblue', font = 'calibri 9 underline').grid(sticky = "W", row = 8, column = 0)
-label_empty3 = tk.Label (root, text = '',background = 'lightblue').grid(row = 9, column = 0)
+
 label_plagiarism_checker = tk.Label (root, text = 'Plagiarism checker:',background = 'lightblue',font = 'calibri 14 bold').grid (row = 10, column = 1, columnspan = 2)
-label_empty4 = tk.Label (root, text = '',background = 'lightblue').grid(row = 11, column = 0)
+
 label_author = tk.Label (root, text = 'Probability of the same author:',background = 'lightblue', font = 'calibri 9 underline').grid(sticky = "W", row = 13, column = 0)
 label_plagiarism = tk.Label (root, text = 'Probability of plagiarism:',background = 'lightblue', font = 'calibri 9 underline').grid(sticky = "W", row = 12, column = 0)
 
