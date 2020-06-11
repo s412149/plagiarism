@@ -190,7 +190,9 @@ root = tk.Tk()
 
 root.title('Plagiarism checker')
 root.configure(background = 'lightblue')
-root.iconbitmap('transparent.ico')
+root.iconbitmap('logo.ico')
+photo = tk.PhotoImage(file='title.gif')
+label=tk.Label(root, image=photo).grid(row=0, column=0, columnspan=5)
 
 menubar = tk.Menu(root)
 
@@ -210,19 +212,19 @@ for col in range(0,4):
 for row in range(0,15):
     root.grid_rowconfigure(row, minsize=20)
 
-instruction_label = tk.Label(root, text="INSTRUCTION\n1. Choose file 1 and file 2 to compare.\n2 .Click button 'Load the files'\n3. You can save the results as .txt using 'Save' button.").grid(sticky = "W",row=0, column=2, rowspan = 2, padx = 5)
+instruction_label = tk.Label(root, text="INSTRUCTION\n1. Choose file 1 and file 2 to compare.\n2 .Click button 'Load' to load the files\n3. You can save the results as .txt using 'Save' button.\n4. Click 'Quit' to exit the program").grid(sticky = "W",row=2, column=2, rowspan = 2, padx = 5)
 
-label_intro = tk.Label (root, text = 'Features of the contents:', background = 'lightblue', font = 'calibri 14 bold').grid(row = 3, column = 1, columnspan = 2)
+label_intro = tk.Label (root, text = 'Features of the contents:', background = 'lightblue', font = 'calibri 14 bold').grid(row = 5, column = 1, columnspan = 2)
 
-label_style = tk.Label (root, text = 'Style:',background = 'lightblue',font = 'calibri 9 underline').grid(sticky = "W", row = 5, column = 0)
-label_variety = tk.Label (root, text = 'Variety:',background = 'lightblue', font = 'calibri 9 underline').grid(sticky = "W", row = 6, column = 0)
-label_top5 = tk.Label (root, text = 'Top 5 words:',background = 'lightblue', font = 'calibri 9 underline').grid(sticky = "W", row = 7, column = 0)
-label_words = tk.Label (root, text = 'Mean number of words:',background = 'lightblue', font = 'calibri 9 underline').grid(sticky = "W", row = 8, column = 0)
+label_style = tk.Label (root, text = 'Style:',background = 'lightblue',font = 'calibri 9 underline').grid(sticky = "W", row = 7, column = 0)
+label_variety = tk.Label (root, text = 'Variety:',background = 'lightblue', font = 'calibri 9 underline').grid(sticky = "W", row = 8, column = 0)
+label_top5 = tk.Label (root, text = 'Top 5 words:',background = 'lightblue', font = 'calibri 9 underline').grid(sticky = "W", row = 9, column = 0)
+label_words = tk.Label (root, text = 'Mean number of words:',background = 'lightblue', font = 'calibri 9 underline').grid(sticky = "W", row = 10, column = 0)
 
-label_plagiarism_checker = tk.Label (root, text = 'Plagiarism checker:',background = 'lightblue',font = 'calibri 14 bold').grid (row = 10, column = 1, columnspan = 2)
+label_plagiarism_checker = tk.Label (root, text = 'Plagiarism checker:',background = 'lightblue',font = 'calibri 14 bold').grid (row = 12, column = 1, columnspan = 2)
 
-label_author = tk.Label (root, text = 'Probability of the same author:',background = 'lightblue', font = 'calibri 9 underline').grid(sticky = "W", row = 13, column = 0)
-label_plagiarism = tk.Label (root, text = 'Probability of plagiarism:',background = 'lightblue', font = 'calibri 9 underline').grid(sticky = "W", row = 12, column = 0)
+label_author = tk.Label (root, text = 'Probability of the same author:',background = 'lightblue', font = 'calibri 9 underline').grid(sticky = "W", row = 15, column = 0)
+label_plagiarism = tk.Label (root, text = 'Probability of plagiarism:',background = 'lightblue', font = 'calibri 9 underline').grid(sticky = "W", row = 14, column = 0)
 
 
 file_path1 = tk.StringVar(root)
@@ -232,14 +234,14 @@ file_path2 = tk.StringVar(root)
 file_path2.set('2nd File location...')
 
 
-file_label1 = tk.Label(root, textvariable=file_path1,background = 'lightblue').grid(row=0, column=0)
+file_label1 = tk.Label(root, textvariable=file_path1,background = 'lightblue').grid(row=2, column=0, padx = 5)
 
-file_label2 = tk.Label(root, textvariable=file_path2,background = 'lightblue').grid(row=1, column=0)
+file_label2 = tk.Label(root, textvariable=file_path2,background = 'lightblue').grid(row=3, column=0, padx = 5)
 
 
-file_button1 = tk.Button(root, text='Choose 1st file ', command = get_file1).grid(row=0, column=1)
+file_button1 = tk.Button(root, text='Choose 1st file ', command = get_file1).grid(row=2, column=1)
 
-file_button2 = tk.Button(root, text='Choose 2nd file', command = get_file2).grid(row=1, column=1)
+file_button2 = tk.Button(root, text='Choose 2nd file', command = get_file2).grid(row=3, column=1)
 
 
 text1st = tk.StringVar(root)
@@ -250,35 +252,35 @@ text2nd = tk.StringVar(root)
 style1 = tk.StringVar(root)
 style1.set('Formal/Informal')
 
-style1_label = tk.Label(root, textvariable = style1,background = 'lightblue').grid(row=5, column=1)
+style1_label = tk.Label(root, textvariable = style1,background = 'lightblue').grid(row=7, column=1)
 
 style2 = tk.StringVar(root)
 style2.set('Formal/Informal')
 
-style2_label = tk.Label(root, textvariable = style2,background = 'lightblue').grid(row=5, column=2)
+style2_label = tk.Label(root, textvariable = style2,background = 'lightblue').grid(row=7, column=2)
 
 
 accent1 = tk.StringVar(root)
 accent1.set('British/American')
 
-accent1_label = tk.Label(root, textvariable=accent1,background = 'lightblue').grid(row=6, column=1)
+accent1_label = tk.Label(root, textvariable=accent1,background = 'lightblue').grid(row=8, column=1)
 
 accent2 = tk.StringVar(root)
 accent2.set('British/American')
 
-accent2_label = tk.Label(root, textvariable=accent2,background = 'lightblue').grid(row=6, column=2)
+accent2_label = tk.Label(root, textvariable=accent2,background = 'lightblue').grid(row=8, column=2)
 
 
 
 top5a = tk.StringVar(root)
 top5a.set('Most common words')
 
-top5a_label = tk.Label(root, textvariable=top5a,background = 'lightblue').grid(row=7, column=1)
+top5a_label = tk.Label(root, textvariable=top5a,background = 'lightblue').grid(row=9, column=1)
 
 top5b = tk.StringVar(root)
 top5b.set('Most common words')
 
-top5b_label = tk.Label(root, textvariable=top5b,background = 'lightblue').grid(row=7, column=2)
+top5b_label = tk.Label(root, textvariable=top5b,background = 'lightblue').grid(row=9, column=2)
 
 common1 = tk.StringVar(root)
 common2 = tk.StringVar(root)
@@ -287,31 +289,31 @@ common2 = tk.StringVar(root)
 word_per1 = tk.IntVar(root)
 word_per1.set(0)
 
-word_per_sentence1_label = tk.Label(root, textvariable=word_per1,background = 'lightblue').grid(row=8, column=1)
+word_per_sentence1_label = tk.Label(root, textvariable=word_per1,background = 'lightblue').grid(row=10, column=1)
 
 word_per2 = tk.IntVar(root)
 word_per2.set(0)
 
-word_per_sentence2_label = tk.Label(root, textvariable=word_per2,background = 'lightblue').grid(row=8, column=2)
+word_per_sentence2_label = tk.Label(root, textvariable=word_per2,background = 'lightblue').grid(row=10, column=2)
 
 
 prob_same = tk.IntVar(root)
 prob_text = tk.StringVar(root)
 prob_text.set('%')
-prob_same_label = tk.Label(root, textvariable=prob_text, padx = 10,background = 'lightblue').grid(sticky = "W", row=13, column=1)
+prob_same_label = tk.Label(root, textvariable=prob_text, padx = 10,background = 'lightblue').grid(sticky = "W", row=15, column=1)
  
 
 plagiat = tk.IntVar(root)
 plagiat_text = tk.StringVar(root)
 plagiat_text.set('%')
-plagiarism_label = tk.Label(root, textvariable=plagiat_text, padx = 10,background = 'lightblue').grid(sticky = "W", row=12, column=1)
+plagiarism_label = tk.Label(root, textvariable=plagiat_text, padx = 10,background = 'lightblue').grid(sticky = "W", row=14, column=1)
 
 
-button = tk.Button(text='Load',font = 'calibri 11 bold', command=lambda:[open_file(),contractions(), variety(), top5(), word_per_sentence(), plagiarism(), same_author()]).grid(sticky = "E", row=14, column=2, padx = 5, pady = 10)
+button = tk.Button(text='Load',font = 'calibri 11 bold', command=lambda:[open_file(),contractions(), variety(), top5(), word_per_sentence(), plagiarism(), same_author()]).grid(sticky = "E", row=16, column=2, padx = 5, pady = 10)
     
-button_quit = tk.Button(text='Quit', command = root.destroy, font = 'calibri 11 bold').grid(row = 14, column = 4, padx = 5, pady = 10)
+button_quit = tk.Button(text='Quit', command = root.destroy, font = 'calibri 11 bold').grid(row = 16, column = 4, padx = 5, pady = 10)
 
-button_save = tk.Button(text='Save', command = save_results, font = 'calibri 11 bold').grid(sticky = "E", row = 14, column = 3, padx = 5, pady = 10)
+button_save = tk.Button(text='Save', command = save_results, font = 'calibri 11 bold').grid(sticky = "E", row = 16, column = 3, padx = 5, pady = 10)
 
 
 
