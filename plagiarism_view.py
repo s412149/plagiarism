@@ -213,7 +213,7 @@ for col in range(0,4):
 for row in range(0,15):
     root.grid_rowconfigure(row, minsize=20)
 
-instruction_label = tk.Label(root, text="INSTRUCTION\n1. Choose file 1 and file 2 to compare.\n2 .Click button 'Load' to load the files\n3. You can save the results as .txt using 'Save' button.\n4. Click 'Quit' to exit the program").grid(sticky = "W",row=2, column=2, rowspan = 2, padx = 5)
+instruction_label = tk.Label(root, text="INSTRUCTIONS\n1. Choose 2 text files to compare.\n2 .Click 'Load' button to load the files\n3. You can save the results as .txt using 'Save' button.\n4. Click 'Quit' to exit the program").grid(sticky = "W",row=2, column=2, rowspan = 2, padx = 5)
 
 label_intro = tk.Label (root, text = 'Features of the contents:', background = 'lightblue', font = 'calibri 14 bold').grid(row = 5, column = 1, columnspan = 2)
 
@@ -229,10 +229,10 @@ label_plagiarism = tk.Label (root, text = 'Probability of plagiarism:',backgroun
 
 
 file_path1 = tk.StringVar(root)
-file_path1.set('1st File location...')
+file_path1.set('1st file location...')
 
 file_path2 = tk.StringVar(root)
-file_path2.set('2nd File location...')
+file_path2.set('2nd file location...')
 
 
 file_label1 = tk.Label(root, textvariable=file_path1,background = 'lightblue').grid(row=2, column=0, padx = 5)
@@ -240,9 +240,9 @@ file_label1 = tk.Label(root, textvariable=file_path1,background = 'lightblue').g
 file_label2 = tk.Label(root, textvariable=file_path2,background = 'lightblue').grid(row=3, column=0, padx = 5)
 
 
-file_button1 = tk.Button(root, text='Choose 1st file ', command = get_file1).grid(row=2, column=1)
+file_button1 = tk.Button(root, text='Choose the 1st file ', command = get_file1).grid(row=2, column=1)
 
-file_button2 = tk.Button(root, text='Choose 2nd file', command = get_file2).grid(row=3, column=1)
+file_button2 = tk.Button(root, text='Choose the 2nd file', command = get_file2).grid(row=3, column=1)
 
 
 text1st = tk.StringVar(root)
