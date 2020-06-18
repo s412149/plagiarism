@@ -170,10 +170,11 @@ def same_author():
     probability = probability + (w_num/5)
     w_per_s1 = word_per1.get()
     w_per_s2 = word_per2.get()
-    sen = int(w_per_s1/w_per_s2)
     if w_per_s1 > w_per_s2:
-        probability += (sen-1)
+        sen = int(w_per_s2/w_per_s1)
+        probability += sen
     else:
+        sen = int(w_per_s1/w_per_s2)
         probability += sen
     prob_same.set((probability*100)/4)
     prob_text.set(str(prob_same.get()) + '% probability that both papers were written by the same author.') 
